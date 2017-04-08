@@ -1,11 +1,14 @@
 import React , { Component } from 'react';
-import { Dropdown } from 'semantic-ui-react'
-import SearchByMonthButton from './month_search_button';
+import { Dropdown, Button } from 'semantic-ui-react'
 import months from './data/months';
 
 const DropdownMonthSelection = () => {(
   <Dropdown placeholder='Select A Month' fluid selection options={months} />
 )}
+
+const SearchByMonthButton = () => (
+  <Button color='orange' content='Search By Month' />
+)
 
 class MonthDropdown extends Component {
   render() {
