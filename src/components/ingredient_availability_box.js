@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import { Table } from 'react-materialize';
 
+
 class IngredientAvail extends Component {
   constructor(props) {
     super(props);

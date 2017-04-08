@@ -1,8 +1,8 @@
 import React , { Component } from 'react';
-import { Button } from 'react-materialize';
+import { Button } from 'semantic-ui-react'
 
-const MonthSearch = () => {
-  return <Button>Search By Month</Button>
-}
+const SearchByMonthButton = () => (
+  <Button color='orange' content='Search By Month' />
+)
 
-export default MonthSearch
+export default SearchByMonthButton

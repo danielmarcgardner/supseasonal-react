@@ -1,18 +1,8 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
-
-
-// import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
 
 
 import App from './components/app';
@@ -25,23 +15,23 @@ import IngredientsDropdown from './components/ingredients_dropdown'
 
 
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  // <Provider store={createStoreWithMiddleware(reducers)}>
+<App />
+// {/* //   <div>
+// //     <MonthDropdown />
+// //     <IngredientsDropdown />
+// //   </div> */}
+//
+//
+//     {/* <App /> */}
+//
+//     {/* probably have to rename enteredIngredient to specified name on ingredients_dropdown*/}
+//     // <IngredientAvail ingredient={this.state.enteredIngredient}/>
+//     {/* <RecipeInfobox /> */}
+//     {/* <RecipeSideList /> */}
 
-//   <div>
-//     <MonthDropdown />
-//     <IngredientsDropdown />
-//   </div>
-
-
-    {/* <App /> */}
-
-    {/* probably have to rename enteredIngredient to specified name on ingredients_dropdown*/}
-    <IngredientAvail ingredient={this.state.enteredIngredient}/>
-    {/* <RecipeInfobox /> */}
-    {/* <RecipeSideList /> */}
-
-  </Provider>
+  // </Provider>
   , document.querySelector('.app'));

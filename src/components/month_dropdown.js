@@ -1,6 +1,11 @@
 import React , { Component } from 'react';
-import { Dropdown, NavItem, Button } from 'react-materialize';
-import MonthSearch from './month_search_button';
+import { Dropdown } from 'semantic-ui-react'
+import SearchByMonthButton from './month_search_button';
+import months from './data/months';
+
+const DropdownMonthSelection = () => {(
+  <Dropdown placeholder='Select A Month' fluid selection options={null} />
+)}
 
 class MonthDropdown extends Component {
   // let navitems = month.map((months) => <NavItem month={months} />)
@@ -8,25 +13,10 @@ class MonthDropdown extends Component {
     return (
     <div>
       <div>
-      <Dropdown trigger={
-      <Button>Click Here to Select A Month!</Button>
-      }>
-        <NavItem>January</NavItem>
-        <NavItem>February</NavItem>
-        <NavItem>March</NavItem>
-        <NavItem>April</NavItem>
-        <NavItem>May</NavItem>
-        <NavItem>June</NavItem>
-        <NavItem>July</NavItem>
-        <NavItem>August</NavItem>
-        <NavItem>September</NavItem>
-        <NavItem>October</NavItem>
-        <NavItem>November</NavItem>
-        <NavItem>December</NavItem>
-      </Dropdown>
-    </div>
+        <DropdownMonthSelection />
+      </div>
     <div>
-      <MonthSearch />
+      <SearchByMonthButton />
     </div>
   </div>
     )
