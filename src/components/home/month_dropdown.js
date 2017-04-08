@@ -4,11 +4,10 @@ import SearchByMonthButton from './month_search_button';
 import months from './data/months';
 
 const DropdownMonthSelection = () => {(
-  <Dropdown placeholder='Select A Month' fluid selection options={null} />
+  <Dropdown placeholder='Select A Month' fluid selection options={months} />
 )}
 
 class MonthDropdown extends Component {
-  // let navitems = month.map((months) => <NavItem month={months} />)
   render() {
     return (
     <div>
