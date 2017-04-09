@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import IndexPage from './index'
-import NavBar from './navbar';
+import IndexPage from './home/home'
+import IngredientAvail from './ingredients/ingredient_availability_table'
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
-        {/* <IndexPage /> */}
-      </div>
+        <IngredientAvail />
     );
   }
 }
