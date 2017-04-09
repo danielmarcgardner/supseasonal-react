@@ -1,50 +1,47 @@
 import React , { Component } from 'react';
-import { Table, Dropdown, NavItem, Button } from 'react-materialize';
+// import { Table, Dropdown, NavItem, Button } from 'react-materialize';
+import { monthRecipes } from '../../actions/index.js';
 
-class RecipeSideList extends Component {
+const _renderDropdown = recipe => {
+  recipe.map(item => {
+    <tr>
+      <td
+        onClick={(event) => {
+          event.preventDefault();
+          // function()
+        }}
+        >
+          {item.title}
+        {/* onclick render recipe info */}
+      </td>
+    </tr>
+  })
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    recipe: state.recipe,
+    date: state.date
+  }
+}
+
+// dispatch?
+
+export class RecipeSideList extends Component {
+  componentWillMount() {
+    this.props.monthRecipes(this.props.date)
+  }
+
   render() {
     return (
       <Table>
-        <div>
-          <Dropdown trigger={
-              <Button>Easter Crudites Basket with Spinach Dip</Button>
-            }>
-            <NavItem>Servings: 12 </NavItem>
-            <NavItem>Ready: 140 Minutes</NavItem>
-            <NavItem divider />
-          </Dropdown>
-        </div>
-        <div>
-          <Dropdown trigger={
-              <Button>Three-Green Salad</Button>
-            }>
-            <NavItem>Servings: 10 </NavItem>
-            <NavItem>Ready: 20 Minutes</NavItem>
-            <NavItem divider />
-          </Dropdown>
-        </div>
-        <div>
-          <Dropdown trigger={
-              <Button>Spring Superfoods Salad</Button>
-            }>
-            <NavItem>Servings: 4 </NavItem>
-            <NavItem>Ready: 15 Minutes</NavItem>
-            <NavItem divider />
-          </Dropdown>
-        </div>
-        <div>
-          <Dropdown trigger={
-              <Button>Killer Garden Salad</Button>
-            }>
-            <NavItem>Servings: 1 </NavItem>
-            <NavItem>Ready: 10 Minutes</NavItem>
-            <NavItem divider />
-          </Dropdown>
-        </div>
+        <tbody>
+          {_renderDropdown(this.props.recipe)}
+        </tbody>
 
       </Table>
     );
   }
 }
 
-export default RecipeSideList;
+export default connect(mapStateToProps)(RecipeSideList)();

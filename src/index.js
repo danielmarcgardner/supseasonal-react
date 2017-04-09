@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 import reducers from './reducers';
 import promiseMiddleware from 'redux-promise-middleware';
-import { applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import Provider from 'react-redux';
 
 
 
