@@ -5,14 +5,15 @@ import NavBar from '../navbar';
 
 class IndexPage extends Component {
   render(){
+    return (
     <div>
-      <NavBar />
-      <div><h1>Sup Seasonal</h1></div>
-      <MonthDropdown />
-      <IngredientsDropdown />
-    </div>
+       <NavBar />
+      <h1>Sup Seasonal</h1>
+        <MonthDropdown />
+        <IngredientsDropdown />
+   </div>
+  )
   }
-
 }
 
 export default IndexPage

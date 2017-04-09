@@ -31,3 +31,22 @@ export const setIngredient = (ing) => {
     ingredient: ing
   }
 }
+
+export const setMonth = (date) => {
+  return{
+    type: CONST.DATE_CHANGE,
+    date: date
+  }
+}
+
+const fetchIngredientAvailability = (ingredientID) => {
+  const url = `http://supseasonal.herokuapp.com/api/foods/${ingredientID}`;
+  return axios.get(url).then(response => response.data)
+}
+
+export const ingredientAvailability = (ingredientID) => {
+  return{
+    type: CONST.SINGLE_INGREDIENT,
+    payload: fetchIngredientAvailability(ingredientID)
+  }
+}
