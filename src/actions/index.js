@@ -18,7 +18,7 @@ const fetchMonthRecipes(date) {
   return axios.get(url).then(response => response.data);
 }
 
-const monthRecipes = date => {
+export const monthRecipes = date => {
   return {
     type: CONST.MONTH_RECIPES,
     payload: fetchMonthRecipes(date)
