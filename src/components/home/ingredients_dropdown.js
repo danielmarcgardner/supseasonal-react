@@ -1,32 +1,57 @@
 import React , { Component } from 'react';
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown, Button } from 'semantic-ui-react';
+import { setIngredient, allIngredients } from '../../actions/index';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const mapStateToProps
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ingredients: state.ingredients,
+    ingredient: state.ingredient
+  }
+}
 
-const DropdownIngredientsSelection = () => {(
-  <Dropdown placeholder='Select A Month' fluid selection options={friendOptions} />
-)}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setIngredient, allIngredients }, dispatch)
+}
 
+const dropDownMaker = (ingredients) => {
+  return ingredients.map((ing) => {
+    let obj = {}
+      obj.value = ing.id;
+      obj.text = ing.food_name;
+  })
+}
+
+
+
+const IngredientSearch = () => (
+  <Button color='orange' content="Search By Ingredient"/>
+)
 
 class IngredientsDropdown extends Component {
+  componentWillMount(){
+    this.props.allIngredients()
+  }
   render() {
+    if (!this.props.ingredients) {
+      return <div>LOADING</div>
+    }
     return (
-      <div>
+      <form onSubmit={(event) => {
+        event.preventDefault()
+        this.props.setIngredient(event.target.value)
+      }}>
         <div>
-        <Dropdown  className="collapsible" trigger={
-        <Button>Select A Food!</Button>
-        }>
-          <NavItem>Food 1</NavItem>
-          <NavItem>Food 2</NavItem>
-          <NavItem>Food 3</NavItem>
-        </Dropdown>
+          <Dropdown placeholder='Select An Ingredient' fluid selection options={dropDownMaker(this.props.ingredients)} />
         </div>
         <div>
-          <IngredientSearch />
+          <IngredientSearch type="submit"><Link to={`/${this.props.ingredient}`}>Search By Ingredients</Link></IngredientSearch>
         </div>
-      </div>
+      </form>
     )
   }
 }
 
-export default IngredientsDropdown
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientsDropdown)
