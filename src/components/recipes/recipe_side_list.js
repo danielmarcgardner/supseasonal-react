@@ -1,20 +1,23 @@
 import React , { Component } from 'react';
-// import { Table, Dropdown, NavItem, Button } from 'react-materialize';
-import { monthRecipes } from '../../actions/index.js';
+import { monthRecipes, setInfoBox } from '../../actions/index.js';
+import {bindActionCreators} from 'redux';
+import {Grid, Row} from 'semantic-ui-react';
 
-const _renderDropdown = recipe => {
+const recipeTable = recipe => {
   recipe.map(item => {
-    <tr>
-      <td
+    <Grid>
+      <Grid.Row
         onClick={(event) => {
           event.preventDefault();
-          // function()
+          // new function that passes recipe index array
+          // this.props.newFunction(item)
+          this.props.setInfoBox(item);
         }}
         >
           {item.title}
         {/* onclick render recipe info */}
-      </td>
-    </tr>
+      </Grid.Row>
+    </Grid>
   })
 }
 
@@ -22,10 +25,13 @@ const mapStateToProps = (state, ownProps) => {
   return {
     recipe: state.recipe,
     date: state.date
-  }
-}
+  };
 
-// dispatch?
+};
+
+const mapDispatchToProps = (dispatch) => {
+  bindActionCreators({monthRecipes}, dispatch);
+};
 
 export class RecipeSideList extends Component {
   componentWillMount() {
@@ -35,13 +41,13 @@ export class RecipeSideList extends Component {
   render() {
     return (
       <Table>
-        <tbody>
-          {_renderDropdown(this.props.recipe)}
-        </tbody>
+        <Table.Body>
+          {recipeTable(this.props.recipe)}
+        </Table.Body>
 
       </Table>
     );
   }
 }
 
-export default connect(mapStateToProps)(RecipeSideList)();
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeSideList);

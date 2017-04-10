@@ -68,3 +68,10 @@ export const monthRecipes = date => {
     payload: fetchMonthRecipes(date)
   }
 }
+
+export const setInfoBox = recipe => {
+  return {
+    type: CONST.SET_INFOBOX,
+    recipeInfo: recipe
+  }
+}
