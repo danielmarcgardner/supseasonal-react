@@ -1,0 +1,26 @@
+.header {
+  text-align: center;
+  font-family: "Times New Roman";
+}
+
+.SearchButton {
+  margin-left: 45%;
+  width: 10%;
+}
+
+.description {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.dropdownMonth {
+  margin-left: 10%;
+  padding: 2%;
+  width: 80%;
+}
+
+.dropdownIng {
+  width: 80%;
+  margin-left: 10%;
+  padding: 2%;
+}

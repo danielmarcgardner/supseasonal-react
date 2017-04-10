@@ -2,17 +2,34 @@ import React, { Component } from 'react';
 import MonthDropdown from './month_dropdown';
 import IngredientsDropdown from './ingredients_dropdown';
 import NavBar from '../navbar';
+import './home.css'
+import { Grid } from 'semantic-ui-react';
+import months from '../data/months';
+import InfoText from './description'
 
 class IndexPage extends Component {
   render(){
+      console.log(this.props)
+    return (
     <div>
-      <NavBar />
-      <div><h1>Sup Seasonal</h1></div>
-      <MonthDropdown />
-      <IngredientsDropdown />
-    </div>
+       <NavBar />
+      <h1 className='header'>Sup Seasonal</h1>
+      <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <MonthDropdown />
+          </Grid.Column>
+          <Grid.Column>
+            <IngredientsDropdown />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row columns={1}>
+          <InfoText />
+        </Grid.Row>
+      </Grid>
+   </div>
+  )
   }
-
 }
 
 export default IndexPage

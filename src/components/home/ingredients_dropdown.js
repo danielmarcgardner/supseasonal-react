@@ -1,32 +1,64 @@
 import React , { Component } from 'react';
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown, Button } from 'semantic-ui-react';
+import { setIngredient, allIngredients, uppercaseFirstLetter } from '../../actions/index';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const mapStateToProps
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ingredients: state.ingredients,
+    ingredient: state.ingredient
+  }
+}
 
-const DropdownIngredientsSelection = () => {(
-  <Dropdown placeholder='Select A Month' fluid selection options={friendOptions} />
-)}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setIngredient, allIngredients }, dispatch)
+}
 
+const dropDownMaker = (ingredients) => {
+  return ingredients.map((ing) => {
+    let obj = {}
+      obj.value = ing.id;
+      obj.text = uppercaseFirstLetter(ing.food_name);
+      return obj
+  })
+}
+
+
+
+const IngredientSearch = () => (
+  <Button color='orange' content="Search By Ingredient"/>
+)
 
 class IngredientsDropdown extends Component {
+  componentWillMount(){
+    this.props.allIngredients()
+  }
   render() {
+    if (this.props.ingredients.length === 0) {
+      return <div>LOADING</div>
+    }
     return (
-      <div>
-        <div>
-        <Dropdown  className="collapsible" trigger={
-        <Button>Select A Food!</Button>
-        }>
-          <NavItem>Food 1</NavItem>
-          <NavItem>Food 2</NavItem>
-          <NavItem>Food 3</NavItem>
-        </Dropdown>
-        </div>
-        <div>
-          <IngredientSearch />
-        </div>
-      </div>
+      <form onSubmit={(event) => {
+        event.preventDefault()
+        // this.props.setIngredient(this.prop.value)
+      }}>
+            <div className="dropdownIng">
+              <Dropdown placeholder='Select An Ingredient' fluid selection options={dropDownMaker(this.props.ingredients)}
+                value={this.props.value}
+                onChange={(event, result) => {
+                  const {value} = result
+                  this.props.setIngredient(value)
+                }
+                } />
+            </div>
+          <div className="SearchButton">
+            <IngredientSearch type="submit"><Link to={`/${this.props.ingredient}`}>Search By Ingredients</Link></IngredientSearch>
+          </div>
+      </form>
     )
   }
 }
 
-export default IngredientsDropdown
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientsDropdown)

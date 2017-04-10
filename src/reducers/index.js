@@ -1,9 +1,14 @@
-import { combineReducers } from 'redux';
-import recipe from './monthRecipeReducer';
+import { combineReducers } from 'redux'
+import {ingredients, ingredient, singleIngredient}  from './ingredientsReducer'
+import {date, recipe} from './dateReducer'
 
-const combineApp = combineReducers({
+const ssApp = combineReducers({
+  //import reducers and put them here
+  ingredients,
+  ingredient,
   date,
+  singleIngredient,
   recipe
 })
 
-export default combineApp;
+export default ssApp
