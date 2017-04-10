@@ -1,0 +1,15 @@
+.seasonal_box {
+  margin-left: 10%;
+  width: 80%;
+  border: 1px solid black
+}
+
+.header {
+  text-align: center;
+  font-family: "Times New Roman";
+}
+
+.foodAvailable {
+  text-align: center;
+  font-family: "Times New Roman";
+}

@@ -9,7 +9,6 @@ import InfoText from './description'
 
 class IndexPage extends Component {
   render(){
-      console.log(this.props)
     return (
     <div>
        <NavBar />

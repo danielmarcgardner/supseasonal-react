@@ -4,6 +4,7 @@ import { ingredientAvailability, uppercaseFirstLetter } from '../../actions/inde
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import NavBar from '../navbar';
+import './ingredients.css'
 
 
 const mapStateToProps = (state) => {
@@ -26,12 +27,11 @@ class IngredientAvail extends Component {
     if (!this.props.singleIngredient[0]) {
       return (<div>LOADING</div>)
     }
-      console.log('here', this.props.singleIngredient[0].jan)
     return (
       <div>
         <NavBar />
-      <h3>{uppercaseFirstLetter(this.props.singleIngredient[0].food_name)} Availability</h3>
-      <Table>
+      <h3 className="header">{uppercaseFirstLetter(this.props.singleIngredient[0].food_name)} Availability</h3>
+      <Table className="ingTable">
         <thead>
           <tr>
             <th data-field="id">Month</th>
