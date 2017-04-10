@@ -3,8 +3,7 @@ import * as CONST from '../constants/constants';
 export const ingredients = (state = [], action) => {
   switch(action.type){
     case CONST.ALL_INGREDIENTS_FULFILLED:
-    console.log(action.payload)
-      return {...state, ingredients: action.payload}
+      return action.payload
     default:
       return state
   }

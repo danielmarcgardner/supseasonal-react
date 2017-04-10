@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { Dropdown, Button } from 'semantic-ui-react';
-import { setIngredient, allIngredients } from '../../actions/index';
+import { setIngredient, allIngredients, uppercaseFirstLetter } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -20,7 +20,8 @@ const dropDownMaker = (ingredients) => {
   return ingredients.map((ing) => {
     let obj = {}
       obj.value = ing.id;
-      obj.text = ing.food_name;
+      obj.text = uppercaseFirstLetter(ing.food_name);
+      return obj
   })
 }
 
@@ -35,20 +36,26 @@ class IngredientsDropdown extends Component {
     this.props.allIngredients()
   }
   render() {
-    if (!this.props.ingredients) {
+    if (this.props.ingredients.length === 0) {
       return <div>LOADING</div>
     }
     return (
       <form onSubmit={(event) => {
         event.preventDefault()
-        this.props.setIngredient(event.target.value)
+        // this.props.setIngredient(this.prop.value)
       }}>
-        <div>
-          <Dropdown placeholder='Select An Ingredient' fluid selection options={dropDownMaker(this.props.ingredients)} />
-        </div>
-        <div>
-          <IngredientSearch type="submit"><Link to={`/${this.props.ingredient}`}>Search By Ingredients</Link></IngredientSearch>
-        </div>
+            <div className="dropdownIng">
+              <Dropdown placeholder='Select An Ingredient' fluid selection options={dropDownMaker(this.props.ingredients)}
+                value={this.props.value}
+                onChange={(event, result) => {
+                  const {value} = result
+                  this.props.setIngredient(value)
+                }
+                } />
+            </div>
+          <div className="SearchButton">
+            <IngredientSearch type="submit"><Link to={`/${this.props.ingredient}`}>Search By Ingredients</Link></IngredientSearch>
+          </div>
       </form>
     )
   }

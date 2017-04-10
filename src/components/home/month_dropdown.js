@@ -1,10 +1,11 @@
 import React , { Component } from 'react';
 import { Dropdown, Button } from 'semantic-ui-react'
 import months from '../data/months';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { setMonth } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import './home.css'
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators( {setMonth}, dispatch)
@@ -19,16 +20,17 @@ const mapStateToProps = (state) =>{
 class MonthDropdown extends Component {
   render() {
     return (
-    <form onSubmit={(event) => {
-      event.preventDefault()
-      this.props.setMonth(event.target.value)
-    }}>
-      <div>
-        <Dropdown placeholder='Select A Month' fluid selection options={months} />
+    <form>
+      <div className="dropdownMonth">
+        <Dropdown placeholder='Select A Month' fluid selection options={months} onChange={(event, result) => {
+          const { value } = result
+          this.props.setMonth(value)
+        }
+        } />
       </div>
-    <div>
+    <div className="SearchButton">
       {/* <Link to={`/${this.props.date}`}> Search By Month </Link> */}
-      <Button color='orange'> Select A Month</Button>
+      <Button color='orange'> Search By Month</Button>
     </div>
   </form>
     )

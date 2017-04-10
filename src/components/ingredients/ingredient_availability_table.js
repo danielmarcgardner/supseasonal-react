@@ -1,8 +1,10 @@
 import React , { Component } from 'react';
 import { Table } from 'react-materialize';
-import { ingredientAvailability } from '../../actions/index';
+import { ingredientAvailability, uppercaseFirstLetter } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import NavBar from '../navbar';
+
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ ingredientAvailability }, dispatch)
 }
 
+
 class IngredientAvail extends Component {
   componentWillMount(){
     this.props.ingredientAvailability(this.props.ingredient)
@@ -26,7 +29,8 @@ class IngredientAvail extends Component {
       console.log('here', this.props.singleIngredient[0].jan)
     return (
       <div>
-      <h3>{this.props.singleIngredient[0].food_name} Availability</h3>
+        <NavBar />
+      <h3>{uppercaseFirstLetter(this.props.singleIngredient[0].food_name)} Availability</h3>
       <Table>
         <thead>
           <tr>
