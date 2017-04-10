@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import {monthRecipes, uppercaseFirstLetter} from '../../actions/index';
+import {uppercaseFirstLetter} from '../../actions/index';
 import { monthlyIngredients } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import './availability.css'
@@ -29,14 +29,14 @@ const ingredientBoxMaker = (ingredients) => {
   for (var i = 0; i < ingredients.length; i++) {
     if ((i+1) % 3 === 0 && i < ingredients.length - end) {
     let foodRow =
-      <Grid.Row columns={3}>
-        <Grid.Column className="foodAvailable">
+      <Grid.Row key={i} columns={3}>
+        <Grid.Column key={ingredients[i].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[i].food_name)}
         </Grid.Column>
-        <Grid.Column className="foodAvailable">
+        <Grid.Column key={ingredients[i+1].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[i+1].food_name)}
         </Grid.Column>
-        <Grid.Column className="foodAvailable">
+        <Grid.Column key={ingredients[i+2].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[i+2].food_name)}
         </Grid.Column>
       </Grid.Row>
@@ -46,8 +46,8 @@ const ingredientBoxMaker = (ingredients) => {
   for (var x = newStart; x < ingredients.length -1; x++) {
     if ((x+1) === undefined) {
       let additional =
-      <Grid.Row columns={3}>
-        <Grid.Column className="foodAvailable">
+      <Grid.Row key={x} columns={3}>
+        <Grid.Column key={ingredients[x].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[x].food_name)}
         </Grid.Column>
       </Grid.Row>
@@ -55,11 +55,11 @@ const ingredientBoxMaker = (ingredients) => {
     }
     else {
       let additional =
-      <Grid.Row columns={3}>
-        <Grid.Column className="foodAvailable">
+      <Grid.Row key={x} columns={3}>
+        <Grid.Column key={ingredients[x].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[x].food_name)}
         </Grid.Column>
-        <Grid.Column className="foodAvailable">
+        <Grid.Column key={ingredients[x+1].id} className="foodAvailable">
           {uppercaseFirstLetter(ingredients[x+1].food_name)}
         </Grid.Column>
       </Grid.Row>
@@ -71,7 +71,7 @@ const ingredientBoxMaker = (ingredients) => {
 
 class SeasonalBox extends Component {
   componentWillMount(){
-    this.props.monthlyIngredients(this.props.date)
+    this.props.monthlyIngredients(this.props.params.month)
   }
   render(){
     if (this.props.monthlyIngredientsArr.length === 0) {

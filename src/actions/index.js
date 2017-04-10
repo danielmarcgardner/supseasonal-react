@@ -74,8 +74,6 @@ export const monthNamer = (month) => {
       return 'January'
     case 'feb':
       return 'February'
-    case 'feb':
-      return 'February'
     case 'mar':
       return 'March'
     case 'apr':

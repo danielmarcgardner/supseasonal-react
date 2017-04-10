@@ -4,8 +4,7 @@ import IngredientAvail from './ingredients/ingredient_availability_table';
 import Availability from './availability/availability';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 export default class App extends Component {

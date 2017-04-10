@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class IngredientAvail extends Component {
   componentWillMount(){
-    this.props.ingredientAvailability(this.props.ingredient)
+    this.props.ingredientAvailability(this.props.match.params.ingredient)
   }
   render() {
     if (!this.props.singleIngredient[0]) {

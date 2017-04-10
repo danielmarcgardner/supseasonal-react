@@ -49,7 +49,7 @@ class IngredientsDropdown extends Component {
                 } />
             </div>
           <div className="SearchButton">
-            <Button color='orange' content="Search By Ingredient"><Link to={`/ingredient/${this.props.ingredient}`}>Search By Ingredients</Link></Button>
+            <Button color='orange'><Link to={`/ingredient/${this.props.ingredient}`}>Search By Ingredients</Link></Button>
 
           </div>
       </form>

@@ -4,7 +4,6 @@ import IngredientsDropdown from './ingredients_dropdown';
 import NavBar from '../navbar';
 import './home.css'
 import { Grid } from 'semantic-ui-react';
-import months from '../data/months';
 import InfoText from './description'
 
 class IndexPage extends Component {
