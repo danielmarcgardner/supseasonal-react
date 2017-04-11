@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
-import { Grid, Grid, Row, Column, Header, Body } from 'semantic-ui-react';
-import { monthRecipes } from '../../actions/index';
+import { Grid, Row, Column, Header, Body } from 'semantic-ui-react';
+import { monthRecipes, recipeInfobox } from '../../actions/index';
+import { connect } from 'react-redux';
 
 const ingredientLister = (recipe) => {
   //map thru extended ingredients
@@ -15,8 +16,8 @@ const ingredientLister = (recipe) => {
             </Grid.Column>
         </Grid.Row>
     </div>
-  }
-}
+  });
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -27,9 +28,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 class RecipeInfobox extends Component {
-  componentWillMount() {
-    this.props.monthRecipes(this.props.date);
-  }
+  // componentWillMount() {
+  //   this.props.monthRecipes(this.props.date);
+  // }
 
   render() {
     return (

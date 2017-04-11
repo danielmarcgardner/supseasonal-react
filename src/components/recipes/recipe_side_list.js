@@ -1,24 +1,35 @@
 import React , { Component } from 'react';
 import { monthRecipes, setInfoBox } from '../../actions/index.js';
 import {bindActionCreators} from 'redux';
-import {Grid, Row} from 'semantic-ui-react';
+import {Table, Grid, Row} from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 const recipeTable = recipe => {
-  recipe.map(item => {
-    <Grid>
-      <Grid.Row
-        onClick={(event) => {
-          event.preventDefault();
-          // new function that passes recipe index array
-          // this.props.newFunction(item)
-          this.props.setInfoBox(item);
-        }}
-        >
-          {item.title}
-        {/* onclick render recipe info */}
-      </Grid.Row>
-    </Grid>
+  return recipe.map(item => {
+    return (
+        <Grid.Row columns={1}
+          // onClick={(event) => {
+          //   event.preventDefault();
+          //   this.props.setInfoBox(item);
+          // }}
+          >
+            <Grid.Column>
+            <div>{item.title}</div>
+            {/* onclick render recipe info */}
+          </Grid.Column>
+        </Grid.Row>
+      );
   })
+      // <Grid>
+      //   <Grid.Row
+      //     onClick={(event) => {
+      //       event.preventDefault();
+      //       this.props.setInfoBox(recipe);
+      //     }}>
+      //       {/* {console.log('talbe rec', recipe.title)} */}
+      //       {recipe.title}
+      //     </Grid.Row>
+      // </Grid>
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -30,7 +41,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  bindActionCreators({monthRecipes}, dispatch);
+  return bindActionCreators({monthRecipes, setInfoBox}, dispatch);
 };
 
 export class RecipeSideList extends Component {
@@ -39,13 +50,24 @@ export class RecipeSideList extends Component {
   }
 
   render() {
+    if (this.props.recipe.length === 0) {
+      return <div>LOADING</div>
+    }
     return (
-      <Table>
-        <Table.Body>
-          {recipeTable(this.props.recipe)}
-        </Table.Body>
 
-      </Table>
+      <Grid divided='vertically'>
+
+          {/* {this.props.recipe.map(item => {
+            console.log(item.title);
+            console.log('recipe talbe item', recipeTable(item));
+            return recipeTable(item);
+        })} */}
+        {/* {console.log('above', this.props.recipe)}
+        {console.log('func', recipeTable)}
+        {console.log('here', recipeTable(this.props.recipe))} */}
+
+        {recipeTable(this.props.recipe)}
+      </Grid>
     );
   }
 }
