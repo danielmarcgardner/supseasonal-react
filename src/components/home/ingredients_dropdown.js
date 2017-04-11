@@ -25,6 +25,10 @@ const dropDownMaker = (ingredients) => {
   })
 }
 
+const IngredientSearch = () => (
+  <Button color='orange' content="Search By Ingredient"/>
+)
+
 
 class IngredientsDropdown extends Component {
   componentWillMount(){

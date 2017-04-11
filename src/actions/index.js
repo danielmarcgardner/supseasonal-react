@@ -68,6 +68,7 @@ export const monthRecipes = date => {
   }
 }
 
+
 export const monthNamer = (month) => {
   switch (month) {
     case 'jan':
@@ -96,6 +97,12 @@ export const monthNamer = (month) => {
       return 'December'
     default:
       return month
+
+
+export const setInfoBox = recipe => {
+  return {
+    type: CONST.SET_INFOBOX,
+    recipeInfo: recipe
 
   }
 }
