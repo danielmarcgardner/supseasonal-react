@@ -57,7 +57,7 @@ export const uppercaseFirstLetter = (string) => {
   return string.charAt(0).toUpperCase()+string.slice(1)
 }
 
-const fetchMonthRecipes(date) {
+const fetchMonthRecipes = (date) => {
   const url = `http://supseasonal.herokuapp.com/api/months/${date}/recipes`;
   return axios.get(url).then(response => response.data);
 }
@@ -69,3 +69,9 @@ export const monthRecipes = date => {
   }
 }
 
+export const setInfoBox = recipe => {
+  return {
+    type: CONST.SET_INFOBOX,
+    recipeInfo: recipe
+  }
+}
