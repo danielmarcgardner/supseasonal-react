@@ -95,7 +95,7 @@ export const monthNamer = (month) => {
       return 'December'
     default:
       return month
-    }
+   }
 }
 
 export const setInfoBox = recipe => {

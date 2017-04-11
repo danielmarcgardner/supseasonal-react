@@ -6,7 +6,7 @@ class NavBar extends Component {
   render(){
     return (
       <Menu size='massive' color='orange'>
-        <Menu.Item  className='left' header>Sup Seasonal</Menu.Item>
+        <Menu.Item  className='left' header><div className="name">Sup Seasonal</div></Menu.Item>
         <Menu.Item className='right medium'><Link to={'/'}>Home</Link></Menu.Item>
       </Menu>
     )
