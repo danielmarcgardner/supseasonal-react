@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
-
 const fetchMonth = (date) => {
   const url = `http://supseasonal.herokuapp.com/api/months/${date}`
   return axios.get(url).then(response => response.data);
@@ -68,7 +67,6 @@ export const monthRecipes = date => {
   }
 }
 
-
 export const monthNamer = (month) => {
   switch (month) {
     case 'jan':
@@ -97,12 +95,12 @@ export const monthNamer = (month) => {
       return 'December'
     default:
       return month
-
+    }
+}
 
 export const setInfoBox = recipe => {
   return {
     type: CONST.SET_INFOBOX,
     recipeInfo: recipe
-
   }
 }

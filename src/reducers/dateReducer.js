@@ -1,6 +1,6 @@
 import * as CONST from '../constants/constants';
 
-export const date = (state = 'apr', action) => {
+export const date = (state = '', action) => {
   switch (action.type) {
     case CONST.DATE_CHANGE:
       return action.date
