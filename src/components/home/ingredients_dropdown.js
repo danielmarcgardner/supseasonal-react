@@ -29,6 +29,7 @@ const IngredientSearch = () => (
   <Button color='orange' content="Search By Ingredient"/>
 )
 
+
 class IngredientsDropdown extends Component {
   componentWillMount(){
     this.props.allIngredients()
@@ -52,7 +53,8 @@ class IngredientsDropdown extends Component {
                 } />
             </div>
           <div className="SearchButton">
-            <IngredientSearch type="submit"><Link to={`/${this.props.ingredient}`}>Search By Ingredients</Link></IngredientSearch>
+            <Button color='orange'><Link to={`/ingredient/${this.props.ingredient}`}>Search By Ingredients</Link></Button>
+
           </div>
       </form>
     )

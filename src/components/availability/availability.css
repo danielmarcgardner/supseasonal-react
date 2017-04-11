@@ -1,0 +1,38 @@
+.seasonal_box {
+  margin-left: 10%;
+  width: 80%;
+  border: 1px solid black;
+  padding-top: 15px;
+}
+
+.header {
+  text-align: center;
+  font-family: "Times New Roman";
+}
+
+.foodAvailable {
+  text-align: center;
+  font-family: "Times New Roman";
+  margin-top: 15px !important;
+}
+
+.foodAvailableLast {
+  text-align: center;
+  font-family: "Times New Roman";
+}
+
+.linkTag {
+  text-align: center;
+}
+
+.navLink {
+  color: orange;
+}
+
+.seasonalItem{
+  color: orange;
+}
+
+.tableRow {
+  padding: 0px !important;
+}

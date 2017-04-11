@@ -26,3 +26,12 @@ export const singleIngredient = (state = [], action) => {
       return state
   }
 }
+
+export const monthlyIngredientsArr = (state = [], action) => {
+  switch (action.type) {
+    case CONST.MONTH_INGREDIENTS_FULFILLED:
+      return action.payload
+    default:
+      return state
+  }
+}

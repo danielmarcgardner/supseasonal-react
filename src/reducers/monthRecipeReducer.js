@@ -1,6 +1,7 @@
 import * as CONST from '../constants/constants';
 
 export const recipe = (state = [], action) => {
+
   switch(action.type) {
     case CONST.MONTH_RECIPES_FULFILLED:
       return action.payload;

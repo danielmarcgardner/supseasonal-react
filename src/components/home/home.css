@@ -24,3 +24,15 @@
   margin-left: 10%;
   padding: 2%;
 }
+
+a {
+  color: white;
+}
+
+.image {
+  width: 50%;
+  height: 70%;
+  margin-left: 25%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
