@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import { Dropdown, Button } from 'semantic-ui-react'
 import months from '../data/months';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { setMonth } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -29,8 +29,7 @@ class MonthDropdown extends Component {
         } />
       </div>
     <div className="SearchButton">
-      {/* <Link to={`/${this.props.date}`}> Search By Month </Link> */}
-      <Button color='orange'> Search By Month</Button>
+      <Button color='orange'> <Link to={`/month/${this.props.date}`}> Search By Month </Link></Button>
     </div>
   </form>
     )

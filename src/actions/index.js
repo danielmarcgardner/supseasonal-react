@@ -4,7 +4,6 @@ import * as CONST from '../constants/constants';
 
 const fetchMonth = (date) => {
   const url = `http://supseasonal.herokuapp.com/api/months/${date}`
-
   return axios.get(url).then(response => response.data);
 }
 
@@ -57,7 +56,7 @@ export const uppercaseFirstLetter = (string) => {
   return string.charAt(0).toUpperCase()+string.slice(1)
 }
 
-const fetchMonthRecipes(date) {
+const fetchMonthRecipes = (date) => {
   const url = `http://supseasonal.herokuapp.com/api/months/${date}/recipes`;
   return axios.get(url).then(response => response.data);
 }
@@ -69,3 +68,34 @@ export const monthRecipes = date => {
   }
 }
 
+export const monthNamer = (month) => {
+  switch (month) {
+    case 'jan':
+      return 'January'
+    case 'feb':
+      return 'February'
+    case 'mar':
+      return 'March'
+    case 'apr':
+      return 'April'
+    case 'may':
+      return 'May'
+    case 'jun':
+      return 'June'
+    case 'jul':
+      return 'July'
+    case 'aug':
+      return 'August'
+    case 'sep':
+      return 'September'
+    case 'oct':
+      return 'October'
+    case 'nov':
+      return 'November'
+    case 'dec':
+      return 'December'
+    default:
+      return month
+
+  }
+}

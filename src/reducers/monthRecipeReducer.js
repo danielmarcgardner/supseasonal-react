@@ -1,6 +1,6 @@
 import * as CONST from '../constants/constants';
 
-const recipe = (state = {}, action) => {
+export const recipe = (state = {}, action) => {
   switch(action.type) {
     case CONST.MONTH_RECIPES:
     // {...state, }
@@ -9,5 +9,3 @@ const recipe = (state = {}, action) => {
       return state;
   }
 }
-
-export default recipe;
