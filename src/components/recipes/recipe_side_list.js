@@ -3,6 +3,7 @@ import { monthRecipes, setInfoBox } from '../../actions/index.js';
 import {bindActionCreators} from 'redux';
 import {Table, Grid, Row} from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import './recipe_side_list.css';
 
 const recipeTable = recipe => {
   return recipe.map(item => {
@@ -54,7 +55,7 @@ export class RecipeSideList extends Component {
       return <div>LOADING</div>
     }
     return (
-
+      <div className="sidelist">
       <Grid divided='vertically'>
 
           {/* {this.props.recipe.map(item => {
@@ -68,6 +69,7 @@ export class RecipeSideList extends Component {
 
         {recipeTable(this.props.recipe)}
       </Grid>
+      </div>
     );
   }
 }

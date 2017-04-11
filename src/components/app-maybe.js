@@ -8,8 +8,12 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <RecipeSideList />
-        {/* <RecipeInfobox /> */}
+        <span>
+          <RecipeSideList />
+        </span>
+        <span>
+          <RecipeInfobox />
+        </span>
       </div>
       );
   }
