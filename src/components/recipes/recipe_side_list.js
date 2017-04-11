@@ -3,7 +3,7 @@ import { monthRecipes, setInfoBox } from '../../actions/index.js';
 import {bindActionCreators} from 'redux';
 import {Table, Grid, Row} from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import './recipe_side_list.css';
+import './recipe.css';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -22,11 +22,12 @@ const recipeTable = (recipe, props) => {
         <Grid.Row columns={1}
           onClick={(event) => {
             event.preventDefault();
+            // console.log('settingInfoBox', props.setInfoBox(item));
             props.setInfoBox(item);
           }}
           >
-            <Grid.Column>
-            <div>{item.title}</div>
+          <Grid.Column>
+            {item.title}
           </Grid.Column>
         </Grid.Row>
       );
@@ -35,7 +36,7 @@ const recipeTable = (recipe, props) => {
 
 export class RecipeSideList extends Component {
   componentWillMount() {
-    this.props.monthRecipes(this.props.date)
+    this.props.monthRecipes(this.props.params.month)
   }
 
   render() {
@@ -43,10 +44,11 @@ export class RecipeSideList extends Component {
       return <div>LOADING</div>
     }
     return (
-      <div className="sidelist">
-      <Grid divided='vertically'>
-        {recipeTable(this.props.recipe, this.props)}
-      </Grid>
+      <div className="sideDiv">
+        <Grid divided='vertically'>
+          {recipeTable(this.props.recipe
+            , this.props)}
+        </Grid>
       </div>
     );
   }

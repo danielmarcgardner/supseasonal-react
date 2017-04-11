@@ -6,11 +6,12 @@ import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import RecipeSideList from './recipe_side_list';
 import RecipeInfobox from './recipe_infobox';
+import {monthNamer} from '../../actions/index';
 
 const mapStateToProps = (state, ownProps) => {
-  return (
+  return {
     date: state.date
-  )
+  }
 }
 
 class Recipes extends Component {
@@ -18,19 +19,15 @@ class Recipes extends Component {
     return (
       <div>
         <NavBar />
-        {/* this.props.date? */}
-        <h1>Seasonal Recipes for {this.props.date}</h1>
+        <h1>Seasonal Recipes for {monthNamer(this.props.match.params.month)}</h1>
         <Grid divided='vertically'>
           <Grid.Row columns={2}>
-            <Grid.Column>
-              <RecipeSideList />
+            <Grid.Column className='sideList'>
+              <RecipeSideList params={this.props.match.params}/>
             </Grid.Column>
-            <Grid.Column>
-              <RecipeInfobox />
+            <Grid.Column className="infoBox">
+              <RecipeInfobox params={this.props.match.params}/>
             </Grid.Column>
-          </Grid.Row>
-          <Grid.Row columns={1}>
-            {/* < /> */}
           </Grid.Row>
         </Grid>
       </div>
