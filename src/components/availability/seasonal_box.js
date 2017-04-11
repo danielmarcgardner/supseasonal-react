@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import {uppercaseFirstLetter} from '../../actions/index';
 import { monthlyIngredients } from '../../actions/index';
 import { bindActionCreators } from 'redux';
-import './availability.css'
+import './availability.css';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return {
@@ -24,50 +25,94 @@ const ingredientBoxMaker = (ingredients) => {
     return 0
   })
   let foodGrid = []
-  let end = ingredients.length % 3 + 1
+  let end = ingredients.length % 5 + 1
   let newStart = ingredients.length-end
   for (var i = 0; i < ingredients.length; i++) {
-    if ((i+1) % 3 === 0 && i < ingredients.length - end) {
+    if ((i+1) % 5 === 0 && i < ingredients.length - end) {
     let foodRow =
-      <Grid.Row key={i} columns={3}>
-        <Grid.Column key={ingredients[i].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[i].food_name)}
+      <Grid.Row columns={5} key={i} className="tableRow">
+        <Grid.Column className="foodAvailable">
+          {<Link to={`/ingredient/${ingredients[i].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[i].food_name)}</Link>}
         </Grid.Column>
-        <Grid.Column key={ingredients[i+1].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[i+1].food_name)}
+        <Grid.Column className="foodAvailable">
+          {<Link to={`/ingredient/${ingredients[i+1].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[i+1].food_name)}</Link>}
         </Grid.Column>
-        <Grid.Column key={ingredients[i+2].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[i+2].food_name)}
+        <Grid.Column className="foodAvailable">
+          {<Link to={`/ingredient/${ingredients[i+2].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[i+2].food_name)}</Link>}
+        </Grid.Column>
+        <Grid.Column className="foodAvailable">
+          {<Link to={`/ingredient/${ingredients[i+3].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[i+3].food_name)}</Link>}
+        </Grid.Column>
+        <Grid.Column className="foodAvailable">
+          {<Link to={`/ingredient/${ingredients[i+4].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[i+4].food_name)}</Link>}
         </Grid.Column>
       </Grid.Row>
       foodGrid.push(foodRow)
     }
   }
-  for (var x = newStart; x < ingredients.length -1; x++) {
-    if ((x+1) === undefined) {
-      let additional =
-      <Grid.Row key={x} columns={3}>
-        <Grid.Column key={ingredients[x].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[x].food_name)}
-        </Grid.Column>
-      </Grid.Row>
-      foodGrid.push(additional)
+  for (var x = newStart; x < ingredients.length; x++) {
+    if (ingredients[x+3] !== undefined ) {
+      let lastRow =
+        <Grid.Row columns={5} key={x}>
+          <Grid.Column  className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+1].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+1].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+2].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+2].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+3].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+3].food_name)}</Link>}
+          </Grid.Column>
+        </Grid.Row>
+      foodGrid.push(lastRow)
+      return foodGrid
     }
-    else {
-      let additional =
-      <Grid.Row key={x} columns={3}>
-        <Grid.Column key={ingredients[x].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[x].food_name)}
-        </Grid.Column>
-        <Grid.Column key={ingredients[x+1].id} className="foodAvailable">
-          {uppercaseFirstLetter(ingredients[x+1].food_name)}
-        </Grid.Column>
-      </Grid.Row>
-      foodGrid.push(additional)
+    else if (ingredients[x+2] !== undefined) {
+      let lastRow =
+        <Grid.Row columns={5} key={x}>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+1].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+1].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+2].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+2].food_name)}</Link>}
+          </Grid.Column>
+        </Grid.Row>
+      foodGrid.push(lastRow)
+      return foodGrid
+    }
+    else if (ingredients[x+1] !== undefined) {
+      let lastRow =
+        <Grid.Row columns={5} key={x}>
+          <Grid.Column  className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x].food_name)}</Link>}
+          </Grid.Column>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x+1].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x+1].food_name)}</Link>}
+          </Grid.Column>
+        </Grid.Row>
+      foodGrid.push(lastRow)
+      return foodGrid
+    }
+    else if (ingredients[x] !== undefined) {
+      let lastRow =
+        <Grid.Row columns={5} key={x}>
+          <Grid.Column className="foodAvailableLast">
+            {<Link to={`/ingredient/${ingredients[x].id}`} className="seasonalItem">{uppercaseFirstLetter(ingredients[x].food_name)}</Link>}
+          </Grid.Column>
+        </Grid.Row>
+      foodGrid.push(lastRow)
+      return foodGrid
     }
   }
   return foodGrid
 }
+
 
 class SeasonalBox extends Component {
   componentWillMount(){
