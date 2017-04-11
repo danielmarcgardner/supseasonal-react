@@ -12,7 +12,7 @@ export default class App extends Component {
           <RecipeSideList />
         </span>
         <span>
-          <RecipeInfobox />
+          {/* <RecipeInfobox /> */}
         </span>
       </div>
       );

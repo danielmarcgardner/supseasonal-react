@@ -9,9 +9,9 @@ export const recipe = (state = [], action) => {
   }
 }
 
-export const fillInfoBox = (state = {}, action) => {
+export const recipeInfo = (state = {}, action) => {
   switch (action.type) {
-    case CONST.SET_INFOBOX:
+    case CONST.SET_INFOBOX_FULFILLED:
       return action.recipeInfo;
     default:
       return state;

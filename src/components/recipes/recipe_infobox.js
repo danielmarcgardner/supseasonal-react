@@ -1,7 +1,15 @@
 import React , { Component } from 'react';
 import { Grid, Row, Column, Header, Body } from 'semantic-ui-react';
-import { monthRecipes, recipeInfobox } from '../../actions/index';
+import { monthRecipes, recipeInfobox, setInfoBox } from '../../actions/index';
 import { connect } from 'react-redux';
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    date: state.date,
+    recipe: state.recipe,
+    recipeInfo: state.recipeInfo
+  }
+}
 
 const ingredientLister = (recipe) => {
   //map thru extended ingredients
@@ -19,20 +27,14 @@ const ingredientLister = (recipe) => {
   });
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    date: state.date,
-    recipe: state.recipe,
-    recipeInfo: state.recipeInfo
-  }
-}
-
 class RecipeInfobox extends Component {
-  // componentWillMount() {
-  //   this.props.monthRecipes(this.props.date);
-  // }
+  componentWillMount() {
+    {console.log(this.props);}
+    setInfoBox(this.props.recipeInfo);
+  }
 
   render() {
+    console.log('render', this.props);
     return (
       <Grid>
         <h5>{this.props.recipeInfo.title}</h5>
