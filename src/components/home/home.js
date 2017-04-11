@@ -4,7 +4,8 @@ import IngredientsDropdown from './ingredients_dropdown';
 import NavBar from '../navbar';
 import './home.css'
 import { Grid } from 'semantic-ui-react';
-import InfoText from './description'
+import InfoText from './description';
+import Footer from '../footer'
 
 class IndexPage extends Component {
   render(){
@@ -22,8 +23,11 @@ class IndexPage extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={1}>
-          <img className="image" src="https://cdn.pixabay.com/photo/2016/09/03/17/25/pumpkins-1642231_1280.jpg" />
+          <img className="image" src='http://www.freepptbackground.com/wp-content/uploads/2015/04/fresh-fruits-and-vegetables-ppt-background.jpg' />
           <InfoText />
+        </Grid.Row>
+        <Grid.Row columns={1}>
+          <Footer />
         </Grid.Row>
       </Grid>
    </div>
