@@ -29,7 +29,7 @@ class MonthDropdown extends Component {
         } />
       </div>
     <div className="SearchButton">
-      <Button color='orange'> <Link to={`/month/${this.props.date}`}> Search By Month </Link></Button>
+      <Link to={`/month/${this.props.date}`}><Button color='orange'>  Search By Month </Button></Link>
     </div>
   </form>
     )

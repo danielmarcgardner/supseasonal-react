@@ -22,7 +22,7 @@ class Availability extends Component {
       <div>
         <NavBar />
         <h2 className="header">Seasonal Ingredients for {monthNamer(this.props.match.params.month)}</h2>
-        <h4 className="linkTag"><Link className="navLink" to='/recipes'>Get the recipes for {monthNamer(this.props.match.params.month)}</Link></h4>
+        <h4 className="linkTag"><Link className="navLink" to={`/recipes/${this.props.match.params.month}`}>Get the recipes for {monthNamer(this.props.match.params.month)}</Link></h4>
         <SeasonalBox params={this.props.match.params}/>
       </div>
     )
