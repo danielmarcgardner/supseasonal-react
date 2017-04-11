@@ -7,9 +7,11 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import RecipeInfobox from './recipes/recipe_infobox';
-import RecipeSideList from './recipes/recipe_side_list';
+import Recipes from './recipes/recipes';
 
+// delete below once finished testing
+import RecipeSideList from './recipes/recipe_side_list';
+import RecipeInfobox from './recipes/recipe_infobox';
 
 export default class App extends Component {
   render() {
@@ -21,17 +23,14 @@ export default class App extends Component {
             <Route path="/month/:month" component={Availability} />
             {/* <Route path="/recipes/:recipes" component={IndexPage} /> */}
             <Route path="/ingredient/:ingredient" component={IngredientAvail} />
+            <Route path="/recipes/:month" component={Recipes} />
           </div>
         </Router>
-
-//       <div>
-//         <span>
-//           <RecipeSideList />
-//         </span>
-//         <span>
-//           {/* <RecipeInfobox /> */}
-//         </span>
-//       </div>
+      //
+      // <div>
+      //     <RecipeSideList />
+      //     <RecipeInfobox />
+      // </div>
 
       );
   }

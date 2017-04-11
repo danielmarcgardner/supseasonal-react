@@ -1,0 +1,21 @@
+.sidelist {
+  width: 50%;
+  border: 1px solid black;
+  /*display: inline;*/
+}
+
+.sideDiv {
+  width: 45%;
+  display: inline-block;
+
+}
+
+.infoDiv {
+  width: 45%;
+  display: inline-block;
+/**/
+}
+
+/*.ui.vertically.divided.grid {
+  width: 50%;
+}*/
