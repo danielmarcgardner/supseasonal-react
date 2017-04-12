@@ -24,7 +24,7 @@ class IngredientAvail extends Component {
     this.props.ingredientAvailability(this.props.match.params.ingredient)
   }
   render() {
-    if (!this.props.singleIngredient[0]) {
+    if (this.props.singleIngredient.length === 0) {
       return (<div>LOADING</div>)
     }
     return (

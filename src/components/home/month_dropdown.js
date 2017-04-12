@@ -25,8 +25,7 @@ class MonthDropdown extends Component {
         <Dropdown placeholder='Select A Month' fluid selection options={months} onChange={(event, result) => {
           const { value } = result
           this.props.setMonth(value)
-        }
-        } />
+        } } />
       </div>
     <div className="SearchButton">
       <Link to={`/month/${this.props.date}`}><Button color='orange'>  Search By Month </Button></Link>

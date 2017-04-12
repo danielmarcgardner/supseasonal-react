@@ -30,7 +30,7 @@ const IngredientSearch = () => (
 )
 
 
-class IngredientsDropdown extends Component {
+export class IngredientsDropdown extends Component {
   componentWillMount(){
     this.props.allIngredients()
   }
