@@ -23,7 +23,7 @@ class IndexPage extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={1}>
-          <img className="image" src='http://www.freepptbackground.com/wp-content/uploads/2015/04/fresh-fruits-and-vegetables-ppt-background.jpg' />
+          <img className="image" src='http://www.freepptbackground.com/wp-content/uploads/2015/04/fresh-fruits-and-vegetables-ppt-background.jpg' alt="fruit"/>
           <InfoText />
         </Grid.Row>
         <Grid.Row columns={1}>

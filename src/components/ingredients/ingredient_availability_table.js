@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import NavBar from '../navbar';
 import './ingredients.css'
 
-
 const mapStateToProps = (state) => {
   return {
     ingredient: state.ingredient,
@@ -18,8 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ ingredientAvailability }, dispatch)
 }
 
-
-class IngredientAvail extends Component {
+export class IngredientAvail extends Component {
   componentWillMount(){
     this.props.ingredientAvailability(this.props.match.params.ingredient)
   }

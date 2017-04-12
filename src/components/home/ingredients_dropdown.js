@@ -25,11 +25,6 @@ const dropDownMaker = (ingredients) => {
   })
 }
 
-const IngredientSearch = () => (
-  <Button color='orange' content="Search By Ingredient"/>
-)
-
-
 export class IngredientsDropdown extends Component {
   componentWillMount(){
     this.props.allIngredients()
@@ -54,7 +49,6 @@ export class IngredientsDropdown extends Component {
             </div>
           <div className="SearchButton">
             <Link to={`/ingredient/${this.props.ingredient}`}><Button color='orange'>Search By Ingredients</Button></Link>
-
           </div>
       </form>
     )

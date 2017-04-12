@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { shallow, render } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-
 describe('IngredientsDropdown', () => {
   const props = {
     allIngredients: function() {
@@ -20,7 +19,7 @@ describe('IngredientsDropdown', () => {
 
   // it('renders', () => {
   //   const div = document.createElement('div');
-  //   ReactDOM.render(<IngredientsDropdown {...props}/>, div);
+  //   ReactDOM.render(<IngredientsDropdown {...props} />, div);
   // });
 
   test('snapshots', () => {

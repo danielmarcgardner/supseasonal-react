@@ -4,7 +4,6 @@ import {date} from './dateReducer'
 import {recipe, recipeInfo} from './monthRecipeReducer'
 
 const ssApp = combineReducers({
-  //import reducers and put them here
   ingredients,
   ingredient,
   date,
@@ -12,7 +11,6 @@ const ssApp = combineReducers({
   recipe,
   monthlyIngredientsArr,
   recipeInfo
-
 })
 
 export default ssApp
