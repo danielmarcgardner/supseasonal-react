@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import {monthNamer} from '../../actions/index';
 import './availability.css'
 
-
 const mapStateToProps = (state, ownProps) => {
   return {
     date: state.date

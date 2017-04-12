@@ -107,10 +107,10 @@ const ingredientBoxMaker = (ingredients) => {
           </Grid.Column>
         </Grid.Row>
       foodGrid.push(lastRow)
-      return foodGrid
+      return foodGrid;
     }
   }
-  return foodGrid
+  return foodGrid;
 }
 
 

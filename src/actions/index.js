@@ -52,7 +52,7 @@ export const ingredientAvailability = (ingredientID) => {
 }
 
 export const uppercaseFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase()+string.slice(1)
+  return string.charAt(0).toUpperCase()+string.slice(1);
 }
 
 const fetchMonthRecipes = (date) => {

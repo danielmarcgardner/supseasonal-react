@@ -1,7 +1,5 @@
 import React , { Component } from 'react';
-// import SeasonalBox from './seasonal_box';
 import NavBar from '../navbar';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Grid } from 'semantic-ui-react';
 import RecipeSideList from './recipe_side_list';
