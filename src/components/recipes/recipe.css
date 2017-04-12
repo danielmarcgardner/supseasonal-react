@@ -1,0 +1,50 @@
+.sidelist {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.header {
+  padding: 1% !important!;
+  margin: 0 !important!;
+  font-family: "Times New Roman";
+}
+
+.headerbox {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  padding: 1%;
+}
+
+.div.two.column.row.smallbox {
+  padding: 1%  !important!;
+}
+
+.sideDiv {
+  width: 70%;
+  display: inline-block;
+  border: 1px solid grey;
+  margin-left: 10%;
+  padding: 5%;
+}
+
+.infoDiv {
+  width: 90%;
+  display: inline-block;
+  border: 1px solid grey;
+  padding: 5%;
+  text-align: center;
+  height: 40%;
+  overflow: auto;
+}
+
+.recipeInfoTop {
+  text-align: left;
+  font-weight: bold
+}
+
+.recipeImg {
+  width: 80%;
+  padding-left: 25%;
+  padding-top: 5%;
+}

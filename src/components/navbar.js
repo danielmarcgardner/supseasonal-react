@@ -1,12 +1,14 @@
 import React , { Component } from 'react';
-import { Navbar, NavItem } from 'react-materialize';
+import { Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
   render(){
     return (
-      <Navbar brand='Sup Seasonal' left className="navbar deep-orange darken-1">
-        <NavItem>Home</NavItem>
-      </Navbar>
+      <Menu size='massive' color='orange'>
+        <Menu.Item  className='left' header><div className="name">Sup Seasonal</div></Menu.Item>
+        <Menu.Item className='right medium'><Link to={'/'}>Home</Link></Menu.Item>
+      </Menu>
     )
   }
 }
