@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import { monthRecipes, setInfoBox } from '../../actions/index.js';
 import {bindActionCreators} from 'redux';
-import {Table, Grid, Row} from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import './recipe.css';
 
@@ -22,7 +22,6 @@ const recipeTable = (recipe, props) => {
         <Grid.Row columns={1}
           onClick={(event) => {
             event.preventDefault();
-            // console.log('settingInfoBox', props.setInfoBox(item));
             props.setInfoBox(item);
           }}
           >

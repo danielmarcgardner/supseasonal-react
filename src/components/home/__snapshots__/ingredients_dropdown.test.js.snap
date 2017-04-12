@@ -1,0 +1,49 @@
+exports[`IngredientsDropdown snapshots 1`] = `
+<form
+  onSubmit={[Function]}>
+  <div
+    className="dropdownIng">
+    <Dropdown
+      additionLabel="Add "
+      additionPosition="top"
+      closeOnBlur={true}
+      fluid={true}
+      icon="dropdown"
+      noResultsMessage="No results found."
+      onChange={[Function]}
+      openOnFocus={true}
+      options={
+        Array [
+          Object {
+            "text": "Artichokes",
+            "value": 1,
+          },
+          Object {
+            "text": "Arugula",
+            "value": 2,
+          },
+          Object {
+            "text": "Asparagus",
+            "value": 3,
+          },
+        ]
+      }
+      placeholder="Select An Ingredient"
+      renderLabel={[Function]}
+      selectOnBlur={true}
+      selection={true} />
+  </div>
+  <div
+    className="SearchButton">
+    <Link
+      replace={false}
+      to="/ingredient/1">
+      <Button
+        as="button"
+        color="orange">
+        Search By Ingredients
+      </Button>
+    </Link>
+  </div>
+</form>
+`;
