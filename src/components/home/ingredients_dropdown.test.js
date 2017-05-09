@@ -17,11 +17,6 @@ describe('IngredientsDropdown', () => {
     ]
   };
 
-  // it('renders', () => {
-  //   const div = document.createElement('div');
-  //   ReactDOM.render(<IngredientsDropdown {...props} />, div);
-  // });
-
   test('snapshots', () => {
     const component = shallow(
       <IngredientsDropdown {...props} />
